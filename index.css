@@ -7,33 +7,34 @@ body {
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  color: white;
 }
 
 nav {
-  margin: 1em;
-  padding-top: 1em;
-  /* padding: 1em; */
+  padding-bottom: 2em;
+  background-image: url("images/cinema-ticket.jpg");
+  background-size: cover;
 }
 
 nav h1 {
   text-align: center;
+  margin: 0;
+  padding: 1em;
 }
 
 nav h1,
 nav h3 {
-  font-size: 2.625em;
+  font-size: 2.4em;
 }
 
 input {
   width: 100%;
-  padding: 0.5em;
   margin-top: 1.3em;
 }
 
 #nav-text {
   display: flex;
   flex-direction: row;
-  border: 1px red solid;
   align-items: center;
   justify-content: space-around;
 }
@@ -41,32 +42,34 @@ input {
 #watchlist {
   cursor: pointer;
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 1.2rem;
 }
 
 .search-wrapper {
   display: flex;
+  padding: 0 1em;
   position: relative;
   width: 100%;
   align-items: center;
-  margin-top: 1em;
-  max-width: 500px;
+  margin-top: 1.3em;
 }
 
 .search-wrapper input {
-  width: 100%;
+  flex: 1;
   padding: 0.5em 0.5em 0.5em 2.5em;
   height: 2.4em;
   border: 1px solid #aaa;
   font-size: 1rem;
   border-right: none;
+  border-radius: 5px 0 0 5px;
+  margin-top: 0;
 }
 
 .search-wrapper i {
   position: absolute;
-  left: 1em;
-  top: 68%;
+  left: 2em;
+  top: 50%;
   transform: translateY(-50%);
   color: #555;
   pointer-events: all;
@@ -74,19 +77,13 @@ input {
 
 .search-button {
   gap: 20px;
-  padding: 0.5em 1em;
+  padding: 0 1em;
   border: 1px solid #aaa;
   background: #eee;
   cursor: pointer;
   font-size: 1rem;
   height: 2.4em;
-  cursor: pointer;
-  width: 30%;
-  border-radius: 5px;
-}
-
-.search-wrapper input,
-.search-button {
-  margin-top: 1.3em;
-  border-radius: 5px;
+  min-width: 10em;
+  border-radius: 0 5px 5px 0;
+  margin-top: 0;
 }
