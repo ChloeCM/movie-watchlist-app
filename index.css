@@ -87,3 +87,16 @@ input {
   border-radius: 0 5px 5px 0;
   margin-top: 0;
 }
+
+@media (min-width: 768px) {
+  nav h1 {
+    padding-bottom: 4em;
+  }
+  .search-wrapper {
+    padding: 30px 70px;
+  }
+
+  .search-wrapper i {
+    padding-left: 3.3em;
+  }
+}
