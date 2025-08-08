@@ -8,12 +8,15 @@ body {
   padding: 0;
   font-size: 1rem;
   color: white;
+  background-color: #121212;
 }
 
 nav {
   padding-bottom: 2em;
-  background-image: url("images/cinema-ticket.jpg");
+  background-image: linear-gradient(to bottom, black, transparent),
+    url("images/cinema-ticket.jpg");
   background-size: cover;
+  background-position: center;
 }
 
 nav h1 {
@@ -86,6 +89,23 @@ input {
   min-width: 10em;
   border-radius: 0 5px 5px 0;
   margin-top: 0;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #37373a;
+  font-weight: bold;
+  padding-top: 180px;
+}
+.main-container i {
+  font-size: 4em;
+}
+
+.main-container p {
+  font-size: 1.3em;
 }
 
 @media (min-width: 768px) {
