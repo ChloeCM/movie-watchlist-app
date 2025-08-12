@@ -49,6 +49,16 @@ function renderFilms(results) {
     .join("");
 
   mainContainer.innerHTML = `<section class="results">${html}</section>`;
+
+  document.querySelectorAll(".film").forEach((article) => {
+    article.addEventListener("click", () => {
+      fetchFilm(article.dataset.id);
+    });
+  });
+}
+
+function fetchFilm(filmImdbId) {
+  console.log(filmImdbId);
 }
 
 // http://www.omdbapi.com/?i=tt3896198&apikey=4a11e4f7
