@@ -1,17 +1,16 @@
+// http://www.omdbapi.com/?i=tt3896198&apikey=4a11e4f7
+
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
 let mainContainer = document.getElementById("main-container");
 let usersInput = [];
 
 searchBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  const searchMovie = searchInput.value;
-  console.log("Searched Movies: ", searchMovie);
+  let searchMovie = searchInput.value;
 
   if (!searchMovie) {
-    console.log("Please type something");
-    mainContainer.innerHTML = `<p>Please type a movie title</p>`;
+    console.log("User did not have any input");
+    mainContainer.innerHTML = `<h2>Please search for a Movie...</h2>`;
     return;
   }
 
@@ -22,31 +21,31 @@ searchBtn.addEventListener("click", function (e) {
     .then((data) => {
       console.log(data);
 
-      console.log(data.Response);
       if (data.Response === "False" || !data.Search) {
-        mainContainer.innerHTML = `<p>${data.Error || "No results found."}</p>`;
+        mainContainer.innerHTML = `<h2>${data.error} || "No results found..." </h2>`;
         return;
       }
-      renderFilms(data.Search); // pass the array of results
+      renderFilms(data.Search);
     })
     .catch(() => {
-      mainContainer.innerHTML = "<p>Network error. Try again.</p>";
+      mainContainer.innerHTML = `<h2>Please try again...</h2>`;
     });
 });
 
+// Print each film out to the DOM using html in JS
 function renderFilms(results) {
   const html = results
     .map(
       (film) => `
-      <article class="film" data-id="${film.imdbID}">
-        <img src="${film.Poster} alt="${film.Title} />
-        <h3>${film.Title}</h3>
-        <p>${film.Year}</p>
-        <button data-id="${film.imdbID}">Add to Watchlist</button>
-      </article>
+  <article class="film" data-id="${film.imdbID}">
+    <img src=${film.Poster} alt="film poster for ${film.Title}" />
+    <h1>${film.Title}</h1>
+    <h3>${film.Year}</h3>
+  </article>
+
   `
     )
-    .join("");
+    .join();
 
   mainContainer.innerHTML = `<section class="results">${html}</section>`;
 
@@ -57,8 +56,37 @@ function renderFilms(results) {
   });
 }
 
+/**
+ * When a user clicks on the poster it goes straight to that film
+ * 1. Has the id of the film
+ * 2. Get a fetch request to get the info for entire film
+ * @param {*} filmImdbId
+ */
 function fetchFilm(filmImdbId) {
-  console.log(filmImdbId);
-}
+  console.log("clicked ID: ", filmImdbId);
 
-// http://www.omdbapi.com/?i=tt3896198&apikey=4a11e4f7
+  fetch(`https://www.omdbapi.com/?apikey=4a11e4f7&i=${filmImdbId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+
+      const html = `
+      <article>
+        <img src="${data.Poster}"/>
+        <div>
+          <h1>${data.Title}</h1>
+          <p>⭐ ${data.imdbRating}</p>
+        </div>
+        <div>
+          <p>${data.Runtime}</p>
+          <p>${data.Genre}</p>
+          <p><i class="fa-solid fa-circle-plus"></i>Watchlist</p>
+        </div>
+        <p>${data.Plot}</p>
+      </article>
+      
+      `;
+
+      mainContainer.innerHTML = html;
+    });
+}
