@@ -102,19 +102,31 @@ nav h3 {
 .text-container {
   padding: 0 1.3rem;
   margin-bottom: 0;
+  border: 1px solid red;
 }
 
 .result-detail,
 .film {
-  /* display: flex; */
-  gap: 0.9em;
-  color: white;
-  font-weight: 100;
-  padding-top: 30px;
+  display: flex;
 }
 
-.result-detail img,
-.film img {
+.result-detail {
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.film {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.1rem; */
+  background-color: #1c1c1c;
+  border-radius: 4px;
+  text-align: center;
+  padding-bottom: 0.75rem;
+  color: white;
+}
+
+.result-detail img {
   width: 270px;
   height: 350px;
   margin: 0 auto;
@@ -151,9 +163,10 @@ nav h3 {
   padding-bottom: 1rem;
 }
 
-.fa-arrow-left:hover {
+.fa-arrow-left:hover,
+.watchlist:hover {
   color: aquamarine;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 /* Main Container */
@@ -167,6 +180,43 @@ nav h3 {
 
 .main-container p {
   font-size: 1.3em;
+}
+
+/* 1) Make results a grid at all widths (or move to the 768px MQ if you prefer) */
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  width: 100%; /* important so it doesn’t shrink to content */
+  box-sizing: border-box;
+}
+
+/* 2) Let the grid stretch inside the main container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* was center — that was constraining the grid */
+  color: #37373a;
+  font-weight: bold;
+}
+
+/* Optional: make cards behave nicely in columns */
+.film {
+  background-color: #1c1c1c;
+  border-radius: 4px;
+  text-align: center;
+  padding-bottom: 0.75rem;
+}
+
+.film img {
+  width: 100%;
+  aspect-ratio: 2 / 3; /* poster shape */
+  object-fit: contain; /* fit whole image inside */
+  background: #000; /* letterbox color */
+  border: 1px solid #555;
+  display: block;
+  border: 1px solid grey;
 }
 
 /* MEDIA QUERIES */
