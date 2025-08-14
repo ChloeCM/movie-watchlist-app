@@ -4,6 +4,7 @@ const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
 let mainContainer = document.getElementById("main-container");
 let usersInput = [];
+let lastSearchedFilm = [];
 
 searchBtn.addEventListener("click", function (e) {
   let searchMovie = searchInput.value;
@@ -25,11 +26,21 @@ searchBtn.addEventListener("click", function (e) {
         mainContainer.innerHTML = `<h2>${data.error} || "No results found..." </h2>`;
         return;
       }
-      renderFilms(data.Search);
+      lastSearchedFilm = data.Search;
+      renderFilms(lastSearchedFilm);
     })
     .catch(() => {
       mainContainer.innerHTML = `<h2>Please try again...</h2>`;
     });
+});
+
+mainContainer.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (e.target.id === "back-button") {
+    console.log("Clicked back button");
+    renderFilms(lastSearchedFilm);
+  }
 });
 
 // Print each film out to the DOM using html in JS
@@ -72,6 +83,7 @@ function fetchFilm(filmImdbId) {
 
       const html = `
       <article class="result-detail" data-id="${data.imdbID}">
+        <i class="fa-solid fa-arrow-left" id="back-button"></i>
         <img src="${data.Poster}"/>
         <div class="text-container">
           <div class="title-rating">
@@ -81,7 +93,7 @@ function fetchFilm(filmImdbId) {
           <div class="runtime-genre">
             <p>${data.Runtime}</p>
             <p>${data.Genre}</p>
-            <p><i class="fa-solid fa-circle-plus"></i>Watchlist</p>
+            <p><i class="fa-solid fa-circle-plus watchlist"></i>Watchlist</p>
           </div>
           <p>${data.Plot}</p>
         </div>

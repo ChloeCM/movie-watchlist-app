@@ -100,18 +100,21 @@ nav h3 {
 }
 
 .text-container {
-  padding: 0 1.1rem;
+  padding: 0 1.3rem;
   margin-bottom: 0;
 }
 
-.result-detail {
+.result-detail,
+.film {
   /* display: flex; */
-  gap: 1em;
+  gap: 0.9em;
   color: white;
   font-weight: 100;
+  padding-top: 30px;
 }
 
-.result-detail img {
+.result-detail img,
+.film img {
   width: 270px;
   height: 350px;
   margin: 0 auto;
@@ -120,6 +123,7 @@ nav h3 {
 
 .title-rating {
   display: flex;
+  justify-content: space-between;
   gap: 1em;
   font-size: 1.125;
   padding-top: 1rem;
@@ -127,17 +131,24 @@ nav h3 {
 
 .runtime-genre {
   display: flex;
-  gap: 2em;
+  justify-content: space-between;
   font-size: 0.75em;
 }
 
 .runtime-genre i {
   font-size: 1.2em;
-  padding-right: 0.4em;
+  padding-right: 0.3em;
 }
 
 .film-icon {
   font-size: 5em;
+  padding-top: 4rem;
+}
+
+.fa-arrow-left {
+  padding-left: 20px;
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
 }
 
 /* Main Container */
@@ -147,7 +158,6 @@ nav h3 {
   align-items: center;
   color: #37373a;
   font-weight: bold;
-  padding-top: 40px;
 }
 
 .main-container p {
