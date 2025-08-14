@@ -91,6 +91,35 @@ input {
   margin-top: 0;
 }
 
+.result-detail {
+  display: flex;
+  gap: 1em;
+  color: white;
+  font-weight: 100;
+}
+
+.result-detail img {
+  width: 200px;
+  height: 250px;
+  padding-left: 44px;
+}
+
+.title-rating {
+  display: flex;
+  gap: 1em;
+}
+
+.runtime-genre {
+  display: flex;
+  gap: 3em;
+  font-size: 0.75em;
+}
+
+.runtime-genre i {
+  font-size: 1em;
+  padding-right: 0.5em;
+}
+
 /* Main Container */
 .main-container {
   display: flex;
@@ -98,10 +127,11 @@ input {
   align-items: center;
   color: #37373a;
   font-weight: bold;
-  padding-top: 180px;
+  padding-top: 80px;
 }
-.main-container i {
+.fa-solid fa-film {
   font-size: 4em;
+  padding-top: 180px;
 }
 
 .main-container p {

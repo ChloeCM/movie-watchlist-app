@@ -71,18 +71,21 @@ function fetchFilm(filmImdbId) {
       console.log(data);
 
       const html = `
-      <article>
+      <article class="result-detail" data-id="${data.imdbID}">
         <img src="${data.Poster}"/>
-        <div>
-          <h1>${data.Title}</h1>
-          <p>⭐ ${data.imdbRating}</p>
+        <div class="text-container">
+          <div class="title-rating">
+            <h1>${data.Title}</h1>
+            <p>⭐ ${data.imdbRating}</p>
+          </div>
+          <div class="runtime-genre">
+            <p>${data.Runtime}</p>
+            <p>${data.Genre}</p>
+            <p><i class="fa-solid fa-circle-plus"></i>Watchlist</p>
+          </div>
+          <p>${data.Plot}</p>
         </div>
-        <div>
-          <p>${data.Runtime}</p>
-          <p>${data.Genre}</p>
-          <p><i class="fa-solid fa-circle-plus"></i>Watchlist</p>
-        </div>
-        <p>${data.Plot}</p>
+        <br />
       </article>
       
       `;
