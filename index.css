@@ -151,6 +151,11 @@ nav h3 {
   padding-bottom: 1rem;
 }
 
+.fa-arrow-left:hover {
+  color: aquamarine;
+  font-size: 1.5rem;
+}
+
 /* Main Container */
 .main-container {
   display: flex;
@@ -175,5 +180,21 @@ nav h3 {
 
   .search-wrapper i {
     padding-left: 3.3em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .result-detail {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2rem;
+  }
+
+  .title-rating {
+    font-size: 1.5rem;
+  }
+
+  .runtime-genre {
+    font-size: 1rem;
   }
 }

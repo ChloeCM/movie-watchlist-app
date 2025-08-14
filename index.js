@@ -41,6 +41,10 @@ mainContainer.addEventListener("click", (e) => {
     console.log("Clicked back button");
     renderFilms(lastSearchedFilm);
   }
+
+  if (e.target.dataset.id === "watchlist") {
+    console.log("Clicked watchlist");
+  }
 });
 
 // Print each film out to the DOM using html in JS
@@ -56,7 +60,7 @@ function renderFilms(results) {
 
   `
     )
-    .join();
+    .join("");
 
   mainContainer.innerHTML = `<section class="results">${html}</section>`;
 
@@ -93,7 +97,7 @@ function fetchFilm(filmImdbId) {
           <div class="runtime-genre">
             <p>${data.Runtime}</p>
             <p>${data.Genre}</p>
-            <p><i class="fa-solid fa-circle-plus watchlist"></i>Watchlist</p>
+            <p><i class="fa-solid fa-circle-plus watchlist" data-id="${data.imdbID}" id="watchlist"></i>Watchlist</p>
           </div>
           <p>${data.Plot}</p>
         </div>
