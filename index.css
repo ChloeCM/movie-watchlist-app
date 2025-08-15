@@ -99,11 +99,12 @@ nav h3 {
   margin-top: 0;
 }
 
-.text-container {
+/* Main Container */
+/* .text-container {
   padding: 0 1.3rem;
   margin-bottom: 0;
   border: 1px solid red;
-}
+} */
 
 .result-detail,
 .film {
@@ -111,8 +112,9 @@ nav h3 {
 }
 
 .result-detail {
+  flex-direction: column;
   gap: 2rem;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .film {
@@ -127,8 +129,8 @@ nav h3 {
 }
 
 .result-detail img {
-  width: 270px;
-  height: 350px;
+  width: 100%;
+  max-width: 420px;
   margin: 0 auto;
   border: 1px grey solid;
 }
@@ -153,8 +155,14 @@ nav h3 {
 }
 
 .film-icon {
-  font-size: 5em;
+  font-size: 6em;
   padding-top: 4rem;
+  margin: 0 auto;
+}
+
+.film-icon-p {
+  margin: 0 auto;
+  padding-top: 1rem;
 }
 
 .fa-arrow-left {
