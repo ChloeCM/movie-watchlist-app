@@ -100,11 +100,11 @@ nav h3 {
 }
 
 /* Main Container */
-/* .text-container {
-  padding: 0 1.3rem;
+.text-container {
+  padding: 0 10rem 0 1rem;
   margin-bottom: 0;
-  border: 1px solid red;
-} */
+  color: white;
+}
 
 .result-detail,
 .film {
@@ -178,13 +178,6 @@ nav h3 {
 }
 
 /* Main Container */
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #37373a;
-  font-weight: bold;
-}
 
 .main-container p {
   font-size: 1.3em;
@@ -205,6 +198,14 @@ nav h3 {
   display: flex;
   flex-direction: column;
   align-items: stretch; /* was center — that was constraining the grid */
+  color: white;
+  font-weight: bold;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #37373a;
   font-weight: bold;
 }
