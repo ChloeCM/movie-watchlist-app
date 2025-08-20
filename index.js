@@ -87,7 +87,7 @@ function fetchFilm(filmImdbId) {
 
       const html = `
       <article class="result-detail" data-id="${data.imdbID}">
-        <i class="fa-solid fa-arrow-left" id="back-button"></i>
+        <i class="fa-solid fa-arrow-left back-button" id="back-button"></i>
         <img src="${data.Poster}"/>
         <div class="text-container">
           <div class="title-rating">
