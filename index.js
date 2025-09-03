@@ -2,6 +2,7 @@
 
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
+const watchlistBtn = document.getElementById("watchlist");
 let mainContainer = document.getElementById("main-container");
 let usersInput = [];
 let lastSearchedFilm = [];
@@ -42,10 +43,23 @@ mainContainer.addEventListener("click", (e) => {
     renderFilms(lastSearchedFilm);
   }
 
-  if (e.target.dataset.id === "watchlist") {
+  if (e.target.id === "watchlist") {
     console.log("Clicked watchlist");
+    watchlistButton();
   }
 });
+
+// We need to get the specific id for that film and bring it into this function
+// Then - get that id and place it into an array of sorted films - personal watchlist
+// what we need to do:
+// 1. Make an array to store all the films
+// 2. Get the id for that specific film
+// 3. Add a message to the screen when a users has successfully added a film (conditional statement)
+// 4. Make a timout for this message to disappear off the screen after 3-5 seconds
+// 5.
+function watchlistButton() {
+  console.log("now your here");
+}
 
 // Print each film out to the DOM using html in JS
 function renderFilms(results) {
@@ -97,7 +111,7 @@ function fetchFilm(filmImdbId) {
           <div class="runtime-genre">
             <p>${data.Runtime}</p>
             <p>${data.Genre}</p>
-            <p><i class="fa-solid fa-circle-plus watchlist" data-id="${data.imdbID}" id="watchlist"></i>Watchlist</p>
+            <p><i class="fa-solid fa-circle-plus watchlist" data-id="${data.imdbID}" id="watchlist"></i>Add to Watchlist</p>
           </div>
           <p>${data.Plot}</p>
         </div>
