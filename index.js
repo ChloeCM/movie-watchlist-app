@@ -117,7 +117,7 @@ function fetchFilm(filmImdbId) {
         </div>
         <br />
       </article>
-      
+
       `;
 
       mainContainer.innerHTML = html;
