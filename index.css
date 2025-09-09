@@ -147,8 +147,14 @@ nav h3 {
 }
 
 .runtime-genre i {
-  font-size: 1.2em;
-  padding-right: 0.3em;
+  font-size: 1.4rem;
+}
+
+.runtime-genre button {
+  background-color: transparent;
+  border: 1px solid red;
+  padding: 0.8rem;
+  pointer-events: none;
 }
 
 .film-icon {

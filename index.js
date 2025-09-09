@@ -7,6 +7,7 @@ let mainContainer = document.getElementById("main-container");
 let usersInput = [];
 let lastSearchedFilm = [];
 
+// Search
 searchBtn.addEventListener("click", function (e) {
   let searchMovie = searchInput.value;
 
@@ -35,6 +36,7 @@ searchBtn.addEventListener("click", function (e) {
     });
 });
 
+// Events on the main container
 mainContainer.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -111,7 +113,7 @@ function fetchFilm(filmImdbId) {
           <div class="runtime-genre">
             <p>${data.Runtime}</p>
             <p>${data.Genre}</p>
-            <p><i class="fa-solid fa-circle-plus watchlist" data-id="${data.imdbID}" id="watchlist"></i>Add to Watchlist</p>
+            <button><i class="fa-solid fa-circle-plus watchlist" id="watchlist"></i></button>
           </div>
           <p>${data.Plot}</p>
         </div>
