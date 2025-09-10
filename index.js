@@ -2,12 +2,15 @@
 
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
-let mainContainer = document.getElementById("main-container");
+const mainContainer = document.getElementById("main-container");
 let usersInput = [];
 let lastSearchedFilm = [];
 let currentFilm = null;
 
-// Search
+// Get the saved film for local storage or start with an empty array
+let watchlist = JSON.parse(localStorage.getItem("watchlist") || "[]");
+
+// SEARCH FOR FILM
 searchBtn.addEventListener("click", function (e) {
   let searchMovie = searchInput.value;
 
@@ -37,6 +40,8 @@ searchBtn.addEventListener("click", function (e) {
 });
 
 // Events on the main container
+// - Back Button
+// - Add to Watchlist Button
 mainContainer.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -59,7 +64,7 @@ mainContainer.addEventListener("click", (e) => {
       plot: currentFilm.Plot,
       year: currentFilm.Year,
     };
-    watchlistButton(currentFilm);
+    addToWatchlist(toSave);
   }
 });
 
@@ -71,11 +76,21 @@ mainContainer.addEventListener("click", (e) => {
 // 3. Add a message to the screen when a users has successfully added a film (conditional statement)
 // 4. Make a timout for this message to disappear off the screen after 3-5 seconds
 // 5.
-function watchlistButton(film) {
-  console.log("now your here");
+function addToWatchlist(item) {
+  console.log("YOu are here");
+
+  if (watchlist.some((eachFilm) => eachFilm.id === item.id)) {
+    alert(`${item.title} is already added to your watchlist`);
+    return;
+  }
+
+  watchlist.push({ item });
+
+  localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  alert(`${item.title} has been added to your watchlist`);
 }
 
-// Print each film out to the DOM using html in JS
+// Print each film out to the DOM
 function renderFilms(results) {
   const html = results
     .map(
