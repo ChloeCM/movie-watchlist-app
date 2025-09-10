@@ -2,10 +2,12 @@
 
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
-const watchlistBtn = document.getElementById("watchlist");
+// const watchlistBtn = document.querySelector("#watchlist-add");
+
 let mainContainer = document.getElementById("main-container");
 let usersInput = [];
 let lastSearchedFilm = [];
+let currentFilm = null;
 
 // Search
 searchBtn.addEventListener("click", function (e) {
@@ -45,10 +47,32 @@ mainContainer.addEventListener("click", (e) => {
     renderFilms(lastSearchedFilm);
   }
 
-  if (e.target.id === "watchlist") {
-    console.log("Clicked watchlist");
-    watchlistButton();
+  const addBtn = e.target.closest("#watchlist-add");
+
+  if (addBtn) {
+    console.log("You are here");
+    watchlistButton(currentFilm);
   }
+  // if (addBtn) {
+  //   if (!currentFilm || !currentFilm.imdbID) return;
+
+  //   const toSave = {
+  //     id: currentFilm.imdbID,
+  //     title: currentFilm.Title,
+  //     poster: currentFilm.Poster,
+  //     rating: currentFilm.imdbRating,
+  //     runtime: currentFilm.Runtime,
+  //     genre: currentFilm.Genre,
+  //     plot: currentFilm.Plot,
+  //     year: currentFilm.Year,
+  //   };
+  //   watchlistButton(toSave);
+  // }
+
+  // if (e.target.id === "watchlist-add") {
+  //   console.log("Clicked watchlist");
+  //   watchlistButton();
+  // }
 });
 
 // We need to get the specific id for that film and bring it into this function
@@ -59,7 +83,7 @@ mainContainer.addEventListener("click", (e) => {
 // 3. Add a message to the screen when a users has successfully added a film (conditional statement)
 // 4. Make a timout for this message to disappear off the screen after 3-5 seconds
 // 5.
-function watchlistButton() {
+function watchlistButton(film) {
   console.log("now your here");
 }
 
@@ -100,6 +124,7 @@ function fetchFilm(filmImdbId) {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
+      currentFilm = data;
 
       const html = `
       <article class="result-detail" data-id="${data.imdbID}">
@@ -113,7 +138,11 @@ function fetchFilm(filmImdbId) {
           <div class="runtime-genre">
             <p>${data.Runtime}</p>
             <p>${data.Genre}</p>
-            <button><i class="fa-solid fa-circle-plus watchlist" id="watchlist"></i></button>
+            <button 
+              class="watchlist-btn" 
+              id="watchlist-add">
+                <i class="fa-solid fa-circle-plus"></i>
+            </button>
           </div>
           <p>${data.Plot}</p>
         </div>

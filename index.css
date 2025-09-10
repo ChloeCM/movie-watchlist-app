@@ -117,7 +117,6 @@ nav h3 {
 .film {
   display: flex;
   flex-direction: column;
-  /* gap: 0.1rem; */
   background-color: #1c1c1c;
   border-radius: 4px;
   text-align: center;
@@ -201,16 +200,14 @@ nav h3 {
   box-sizing: border-box;
 }
 
-/* 2) Let the grid stretch inside the main container */
 .main-container {
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* was center — that was constraining the grid */
+  align-items: stretch;
   color: white;
   font-weight: bold;
 }
 
-/* Optional: make cards behave nicely in columns */
 .film {
   background-color: #1c1c1c;
   border-radius: 4px;
@@ -220,9 +217,9 @@ nav h3 {
 
 .film img {
   width: 100%;
-  aspect-ratio: 2 / 3; /* poster shape */
-  object-fit: contain; /* fit whole image inside */
-  background: #000; /* letterbox color */
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  background: #000;
   border: 1px solid #555;
   display: block;
   border: 1px solid grey;
