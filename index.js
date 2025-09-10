@@ -2,8 +2,6 @@
 
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
-// const watchlistBtn = document.querySelector("#watchlist-add");
-
 let mainContainer = document.getElementById("main-container");
 let usersInput = [];
 let lastSearchedFilm = [];
@@ -47,32 +45,22 @@ mainContainer.addEventListener("click", (e) => {
     renderFilms(lastSearchedFilm);
   }
 
-  const addBtn = e.target.closest("#watchlist-add");
-
+  const addBtn = e.target.closest(".watchlist-btn");
   if (addBtn) {
-    console.log("You are here");
+    if (!currentFilm || !currentFilm.imdbID) return;
+
+    const toSave = {
+      id: currentFilm.imdbID,
+      title: currentFilm.Title,
+      poster: currentFilm.Poster,
+      rating: currentFilm.imdbRating,
+      runtime: currentFilm.Runtime,
+      genre: currentFilm.Genre,
+      plot: currentFilm.Plot,
+      year: currentFilm.Year,
+    };
     watchlistButton(currentFilm);
   }
-  // if (addBtn) {
-  //   if (!currentFilm || !currentFilm.imdbID) return;
-
-  //   const toSave = {
-  //     id: currentFilm.imdbID,
-  //     title: currentFilm.Title,
-  //     poster: currentFilm.Poster,
-  //     rating: currentFilm.imdbRating,
-  //     runtime: currentFilm.Runtime,
-  //     genre: currentFilm.Genre,
-  //     plot: currentFilm.Plot,
-  //     year: currentFilm.Year,
-  //   };
-  //   watchlistButton(toSave);
-  // }
-
-  // if (e.target.id === "watchlist-add") {
-  //   console.log("Clicked watchlist");
-  //   watchlistButton();
-  // }
 });
 
 // We need to get the specific id for that film and bring it into this function
