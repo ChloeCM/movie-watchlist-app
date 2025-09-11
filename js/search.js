@@ -25,7 +25,7 @@ export function setupSearch(
           return;
         }
         lastSearchedFilm.length = 0; // clear
-        lastSearchedFilm.push(...data.Search); // replace contents
+        lastSearchedFilm.push(...data.Search);
         renderFilms(mainContainer, lastSearchedFilm);
       })
       .catch(() => {

@@ -2,9 +2,9 @@
 const API = "https://www.omdbapi.com/";
 const KEY = "4a11e4f7";
 
-export function searchMovies(query) {
-  return fetch(`${API}?apikey=${KEY}&s=${encodeURIComponent(query)}`).then(
-    (res) => res.json()
+export function searchMovies(usersInput) {
+  return fetch(`${API}?apikey=${KEY}&s=${usersInput}`).then((res) =>
+    res.json()
   );
 }
 
