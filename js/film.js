@@ -1,4 +1,3 @@
-// js/film.js
 import { fetchMovieById } from "./api.js";
 import { addToWatchlist, loadWatchlist } from "./watchlistStore.js";
 

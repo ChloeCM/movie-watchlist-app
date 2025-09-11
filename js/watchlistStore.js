@@ -1,4 +1,3 @@
-// js/watchlistStore.js
 const STORAGE_KEY = "watchlist";
 
 export function loadWatchlist() {

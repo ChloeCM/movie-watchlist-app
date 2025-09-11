@@ -1,11 +1,12 @@
-// js/main.js
 import { setupSearch } from "./search.js";
 import { renderFilms } from "./render.js";
 import { setupFilmEvents } from "./film.js";
+import { renderWatchlist } from "./watchlist.js";
 
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
 const mainContainer = document.getElementById("main-container");
+const watchlistLink = document.getElementById("watchlist");
 
 let usersInput = [];
 let lastSearchedFilm = [];
@@ -19,3 +20,9 @@ setupSearch(
   lastSearchedFilm
 );
 setupFilmEvents(mainContainer, lastSearchedFilm, renderFilms);
+
+watchlistLink.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  renderWatchlist(mainContainer);
+});

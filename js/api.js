@@ -1,4 +1,3 @@
-// js/api.js
 const API = "https://www.omdbapi.com/";
 const KEY = "4a11e4f7";
 

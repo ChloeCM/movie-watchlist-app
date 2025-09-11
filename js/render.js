@@ -1,4 +1,3 @@
-// js/render.js
 import { fetchFilm } from "./film.js";
 
 export function renderFilms(mainContainer, results) {

@@ -1,4 +1,3 @@
-// js/search.js
 import { searchMovies } from "./api.js";
 import { renderFilms } from "./render.js";
 
