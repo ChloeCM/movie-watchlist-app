@@ -15,10 +15,11 @@ export function saveWatchlist(list) {
 // Add an item (object with {id, title, poster, ...})
 // Returns {added: boolean, item}
 export function addToWatchlist(list, item) {
-  if (list.some((each) => each.id === item.id)) {
+  if (list.some((each) => each.id !== item.id)) {
+    list.push(item);
+    saveWatchlist(list);
+    return { added: true, item };
+  } else {
     return { added: false, item };
   }
-  list.push(item);
-  saveWatchlist(list);
-  return { added: true, item };
 }
